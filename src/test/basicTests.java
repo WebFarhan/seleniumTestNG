@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,8 +20,11 @@ public class basicTests {
 		System.out.println("hello");
 		// TODO Auto-generated method stub
 		String productName = "ZARA COAT 3";
+		
+		ChromeOptions options = new ChromeOptions();
 		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
+		options.addArguments("headless");
+		WebDriver driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get("https://rahulshettyacademy.com/client");
